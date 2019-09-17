@@ -8,57 +8,59 @@
     <title>Caesar Cypher</title>
 </head>
 <script>
-         <!--
-            function encryptFunction() {
-               //alert("Demo Alert");
-               const Http = new XMLHttpRequest();
-               var data = encodeURIComponent( document.getElementById("dataToEncrypt").value);
-               alert(data);
-               alert(decodeURIComponent(data));
-                const url='/encrypt/'+data;
-                Http.open("GET", url);
-                Http.send();
+function encryptFunction() {
+    //alert("Demo Alert");
+    const Http = new XMLHttpRequest();
+    var data = encodeURIComponent(document.getElementById("dataToEncrypt").value);
+    //alert(data);
+    //alert(decodeURIComponent(data));
+    const url = '/encrypt/' + data;
+    Http.open("GET", url);
+    Http.send();
 
-Http.onreadystatechange = (e) => {
-          
-    //alert(Http.responseText);
-    let response=JSON.parse(Http.responseText)
-    document.getElementById("encryptedData").value= response.result.encryptedData;
-  
+    Http.onreadystatechange = (e) => {
+
+        //alert(Http.responseText);
+        let response = JSON.parse(Http.responseText)
+        document.getElementById("encryptedData").value = response.result.encryptedData;
+
+    }
 }
-            }
 
-            function decryptFunction() {
-               //alert("Demo Alert");
-               const Http = new XMLHttpRequest();
-               var data = encodeURIComponent(document.getElementById("dataToDecrypt").value);
-               //alert(data);
-                const url='/decrypt/'+data;
-                Http.open("GET", url);
-                Http.send();
+function decryptFunction() {
+    //alert("Demo Alert");
+    const Http = new XMLHttpRequest();
+    var data = encodeURIComponent(document.getElementById("dataToDecrypt").value);
+    //alert(data);
+    const url = '/decrypt/' + data;
+    Http.open("GET", url);
+    Http.send();
 
-Http.onreadystatechange = (e) => {
-          
-    //alert(Http.responseText);
-    let response=JSON.parse(Http.responseText)
-    document.getElementById("decryptedData").value= response.result.decryptedData;
-  
+    Http.onreadystatechange = (e) => {
+
+        //alert(Http.responseText);
+        let response = JSON.parse(Http.responseText)
+        document.getElementById("decryptedData").value = response.result.decryptedData;
+
+    }
 }
-            }
-         //-->
-      </script>
+
+</script>
 <body>
   
     <h1>Encrypt and Decrypt using Caesar Cypher</h1>
 
     <table>
+        <tr> <td>Type text here to Encrypt</td></tr>
         <tr>
+           
             <td><input type="text" value="Here is data" id="dataToEncrypt"></td>
-            <td> <input type="text" id="encryptedData"></td>
+            <td> <input type="text" id="encryptedData">-->>>>></td>
             <td><button onclick="encryptFunction()">Encrypt</button></td>
         </tr>
+          <tr> <td>Type text here to Decrypt</td></tr>
         <td><input type="text" value="Type here" id="dataToDecrypt"></td>
-            <td> <input type="text" id="decryptedData">></td>
+            <td> <input type="text" id="decryptedData">-->>>>></td>
             <td><button onclick="decryptFunction()">Decrypt</button></td>
         </tr>
     </table>
