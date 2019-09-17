@@ -12,8 +12,9 @@
             function encryptFunction() {
                //alert("Demo Alert");
                const Http = new XMLHttpRequest();
-               var data = document.getElementById("dataToEncrypt").value;
-               //alert(data);
+               var data = encodeURIComponent( document.getElementById("dataToEncrypt").value);
+               alert(data);
+               alert(decodeURIComponent(data));
                 const url='/encrypt/'+data;
                 Http.open("GET", url);
                 Http.send();
@@ -22,7 +23,25 @@ Http.onreadystatechange = (e) => {
           
     //alert(Http.responseText);
     let response=JSON.parse(Http.responseText)
-    document.getElementById("encryptedData").value= response.result.encrypted;
+    document.getElementById("encryptedData").value= response.result.encryptedData;
+  
+}
+            }
+
+            function decryptFunction() {
+               //alert("Demo Alert");
+               const Http = new XMLHttpRequest();
+               var data = encodeURIComponent(document.getElementById("dataToDecrypt").value);
+               //alert(data);
+                const url='/decrypt/'+data;
+                Http.open("GET", url);
+                Http.send();
+
+Http.onreadystatechange = (e) => {
+          
+    //alert(Http.responseText);
+    let response=JSON.parse(Http.responseText)
+    document.getElementById("decryptedData").value= response.result.decryptedData;
   
 }
             }
@@ -34,13 +53,13 @@ Http.onreadystatechange = (e) => {
 
     <table>
         <tr>
-            <td><input type="text" value="Txt to encrypt" id="dataToEncrypt"></td>
+            <td><input type="text" value="Here is data" id="dataToEncrypt"></td>
             <td> <input type="text" id="encryptedData"></td>
             <td><button onclick="encryptFunction()">Encrypt</button></td>
         </tr>
-        <td><input type="text"></td>
-            <td> <input type="text"></td>
-            <td><button >Decrypt</button></td>
+        <td><input type="text" value="Type here" id="dataToDecrypt"></td>
+            <td> <input type="text" id="decryptedData">></td>
+            <td><button onclick="decryptFunction()">Decrypt</button></td>
         </tr>
     </table>
     
