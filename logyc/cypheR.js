@@ -5,7 +5,10 @@ const encrypt = (data) => {
         encryptedData += String.fromCharCode(c.charCodeAt(c) + 3);
     });
 
-    return encryptedData;
+    return {
+        encrypted: encryptedData,
+        decryptedData: data
+    };;
 
 }
 
@@ -16,7 +19,10 @@ const decrypt = (data) => {
         decryptedData += String.fromCharCode(c.charCodeAt(c) - 3);
     });
 
-    return decryptedData;
+    return {
+        encrypted: data,
+        decryptedData: decryptedData
+    };
 
 }
 

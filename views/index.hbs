@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Caesar Cypher</title>
+</head>
+<script>
+         <!--
+            function encryptFunction() {
+               //alert("Demo Alert");
+               const Http = new XMLHttpRequest();
+               var data = document.getElementById("dataToEncrypt").value;
+               //alert(data);
+                const url='/encrypt/'+data;
+                Http.open("GET", url);
+                Http.send();
+
+Http.onreadystatechange = (e) => {
+          
+    //alert(Http.responseText);
+    let response=JSON.parse(Http.responseText)
+    document.getElementById("encryptedData").value= response.result.encrypted;
+  
+}
+            }
+         //-->
+      </script>
+<body>
+  
+    <h1>Encrypt and Decrypt using Caesar Cypher</h1>
+
+    <table>
+        <tr>
+            <td><input type="text" value="Txt to encrypt" id="dataToEncrypt"></td>
+            <td> <input type="text" id="encryptedData"></td>
+            <td><button onclick="encryptFunction()">Encrypt</button></td>
+        </tr>
+        <td><input type="text"></td>
+            <td> <input type="text"></td>
+            <td><button >Decrypt</button></td>
+        </tr>
+    </table>
+    
+   
+    
+</body>
+
+</html>
